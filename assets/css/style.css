@@ -79,6 +79,7 @@ table {
     width: 100%;
     border-collapse: collapse;
 }
+
 table caption {
     font-style: italic;
     font-size: 1.6rem;
@@ -86,14 +87,16 @@ table caption {
     margin-bottom: 1rem;
 }
 
-table td, table th {
+table td,
+table th {
     white-space: nowrap;
     padding: 1rem;
     text-align: left;
     border: 0.1rem solid var(--light-gray-color);
 }
 
-tfoot td, table th { 
+tfoot td,
+table th {
     background: var(--light-gray-color);
 }
 
@@ -125,7 +128,8 @@ body .full-width {
 }
 
 .menu {
-    position: fixed;  /* Desce junto com a página*/
+    position: fixed;
+    /* Desce junto com a página*/
     top: 0;
     left: 0;
     right: 0;
@@ -135,7 +139,8 @@ body .full-width {
 }
 
 .menu-content {
-    display: flex; /* Separa a Logo do Menu, (Joga para o canto)*/
+    display: flex;
+    /* Separa a Logo do Menu, (Joga para o canto)*/
     justify-content: space-between;
     align-items: center;
     padding-top: 0;
@@ -157,7 +162,8 @@ body .full-width {
 }
 
 .menu ul li a {
-    display: block; /* O tamanho do a vai empurrar o menu para baixo */
+    display: block;
+    /* O tamanho do a vai empurrar o menu para baixo */
     padding: 2rem;
     font-size: 1.8rem;
     color: var(--primary-color);
@@ -171,7 +177,7 @@ body .full-width {
     left: 50%;
     width: 0%;
     height: 0.2rem;
-    background:crimson; 
+    background: crimson;
     transition: all 300ms ease-in-out;
 }
 
@@ -188,12 +194,14 @@ body .full-width {
     position: relative;
     /* top: -8rem; */
     display: grid;
-    grid-template-columns: 1fr 1.5fr; /* Divide a tela em duas partes */
+    grid-template-columns: 1fr 1.5fr;
+    /* Divide a tela em duas partes */
     gap: var(--gap);
     min-height: 100vh;
 }
 
-.intro-text-content, .intro-img {
+.intro-text-content,
+.intro-img {
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
@@ -239,7 +247,8 @@ body .full-width {
 
 .grid h3 {
     font-size: 3rem;
-    position: relative; /* Para o ::before funcionar, pois preciso de um container */
+    position: relative;
+    /* Para o ::before funcionar, pois preciso de um container */
     padding-left: 5rem;
     padding-bottom: 2rem;
 }
@@ -267,7 +276,7 @@ body .full-width {
 }
 
 .gallery-img img:hover {
-    transform:  translate(-3%, 3%) scale(1.2) rotate(5deg) ;
+    transform: translate(-3%, 3%) scale(1.2) rotate(5deg);
 }
 
 .contact-form {
@@ -344,4 +353,100 @@ body .full-width {
 .footer p {
     margin: 0;
     padding: 3rem;
+}
+
+.close-menu {
+    display: none;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--white-color);
+    width: 5rem;
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: var(--primary-color);
+    border: 0.1rem solid var(--primary-color);
+}
+
+@media (max-width: 800px) {
+
+    .intro-content,
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-img {
+        width: 100%;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .gallery-img img {
+        width: 100%;
+    }
+
+    .grid-one-content {
+        display: block;
+    }
+
+    .menu {
+        bottom: 0;
+        text-align: center;
+    }
+
+    .menu-content, .menu-content ul {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .menu-content {
+        height: 100vh;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    .close-menu {
+        position: fixed;
+        z-index: 2;
+        top: 0;
+        left: 0;
+    }
+
+    .close-menu-label::after{
+        content: '☰';
+        position: fixed;
+        z-index: 2;
+        top: 2rem;
+        right: 2rem;
+        background-color: var(--primary-color);
+        color: var(--white-color);
+        font-size: 3rem;
+        line-height: 3rem;
+        width: 3rem;
+        height: 3rem;
+        text-align: center;
+        padding: 0.5rem;
+        cursor: pointer;
+    }
+
+    .close-menu:checked~.menu {
+        display: block;
+    }
+
+    .close-menu:checked~.close-menu-label::after {
+        content: '×';
+    }
+
+    .menu-spacing {
+        display: none;
+    }
+
 }
